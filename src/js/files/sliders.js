@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation, Pagination, Parallax, Autoplay } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -27,41 +27,37 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
 	// Перечень слайдеров
 	// Проверяем, есть ли слайдер на стронице
-	if (document.querySelector('.swiper')) { // Указываем скласс нужного слайдера
+	if (document.querySelector('.main-block__slider')) { // Указываем скласс нужного слайдера
 		// Создаем слайдер
-		new Swiper('.swiper', { // Указываем скласс нужного слайдера
+		new Swiper('.main-block__slider', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation],
+			modules: [Navigation, Pagination, Parallax, Autoplay],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
-			spaceBetween: 0,
-			autoHeight: true,
+			spaceBetween: 50,
+			parallax: true,
+			// autoHeight: true,
 			speed: 800,
 
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
+			loop: true,
 			//preloadImages: false,
 			//lazy: true,
 
-			/*
 			// Эффекты
-			effect: 'fade',
 			autoplay: {
 				delay: 3000,
 				disableOnInteraction: false,
 			},
-			*/
 
 			// Пагинация
-			/*
 			pagination: {
-				el: '.swiper-pagination',
+				el: '.controll-main-block__dots',
 				clickable: true,
 			},
-			*/
 
 			// Скроллбар
 			/*
@@ -72,10 +68,10 @@ function initSliders() {
 			*/
 
 			// Кнопки "влево/вправо"
-			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
-			},
+			// navigation: {
+			// 	prevEl: '.swiper-button-prev',
+			// 	nextEl: '.swiper-button-next',
+			// },
 
 			// Брейкпоинты
 			/*
@@ -101,7 +97,15 @@ function initSliders() {
 			*/
 			// События
 			on: {
-
+				init: function (swiper) {
+					const allSlides = document.querySelector('.fraction-controll__all');
+					const allSlidesItems = document.querySelectorAll('.slide-main-block:not(.swiper-slide-duplicate)');
+					allSlides.innerHTML = allSlidesItems.length < 10 ? `0${allSlidesItems.length}` : allSlidesItems.length;
+				},
+				slideChange: function (swiper) {
+					const currenrSlide = document.querySelector('.fraction-controll__current');
+					currenrSlide.innerHTML = swiper.realIndex + 1 < 10 ? `0${swiper.realIndex + 1}` : swiper.realIndex + 1;
+				}
 			}
 		});
 	}
