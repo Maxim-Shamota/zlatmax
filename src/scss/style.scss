@@ -155,6 +155,7 @@ body {
 
 // Подключение стилей отдельных страниц
 @import "home";
+@import "catalog";
 
 //====================================================================================================
 
@@ -163,6 +164,18 @@ body {
 	// .page_home
 
 	&_home {}
+
+	// .page_inner
+
+	&_inner {
+		padding-top: rem(30);
+	}
+
+	// .page__header
+
+	&__header {
+		margin-bottom: rem(30);
+	}
 
 	// .page__main-block
 
