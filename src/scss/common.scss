@@ -142,11 +142,25 @@
     grid-template-rows: auto 1fr;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease 0s;
+    position: relative;
 
     @media (any-hover: hover) {
         &:hover {
             box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);
         }
+    }
+
+    // .product-card__sale
+
+    &__sale {
+        position: absolute;
+        top: rem(20);
+        left: 0;
+        color: #fff;
+        background-color: $mainOrange;
+        padding: rem(6) rem(22);
+        z-index: 3;
+        pointer-events: none;
     }
 
     // .product-card__image
@@ -458,11 +472,16 @@
     white-space: nowrap;
     overflow: auto;
     height: rem(22);
+    @media (max-width:$mobile){
+         overflow: visible; 
+    }
 
     // .breadcrumbs__list
 
     &__list {
         display: flex;
+        flex-wrap: wrap;
+        align-items: center;
 
         &:not(:last-child) {
             margin-bottom: rem(30);
@@ -515,15 +534,17 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: rem(30);
+    @include adaptiveValue("gap", 30, 15);
     // .pagging__arrow
 
     &__arrow {
         color: $mainOrange;
-        &::before{
+
+        &::before {
             font-size: rem(10);
-            transform: rotate(-90deg);            
+            transform: rotate(-90deg);
         }
+
         &:disabled {
             color: rgba(0, 0, 0, 0.12);
         }
@@ -560,9 +581,17 @@
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        &._active{
+
+        &._active {
             background-color: $mainOrange;
             color: #fff;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $mainOrange;
+                color: #fff;
+            }
         }
     }
 }

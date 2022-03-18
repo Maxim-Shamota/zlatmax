@@ -5,9 +5,9 @@
 })
 
 <body>
-	<div class="wrapper">
-		@@include('html/_header.htm',{})
-		<main class="page page_inner">
+    <div class="wrapper">
+        @@include('html/_header.htm',{})
+        <main class="page page_inner">
             <div class="page__header">
                 <div class="page__container">
                     <h1 class="page__title title">Разделочные ножи</h1>
@@ -23,10 +23,84 @@
                     </nav>
                 </div>
             </div>
-			<div class="catalog">
+            <div class="catalog">
                 <div class="catalog__container">
-                    <div class="catalog__body">
-                        <div class="catalog__filter"></div>
+                    <div data-spollers="992" class="catalog__body">
+                        <div class="catalog__filter filter-catalog">
+                            <button type="button" data-spoller class="filter-catalog__title">Фильтр товаров</button>
+                            <div data-spollers class="filter-catalog__items">
+                                <div class="filter-catalog__price price-filter">
+                                    <button type="button" data-spoller class="price-filter__title _icon-spoller-arrow">Цена</button>
+                                    <div data-range class="price-filter__body">
+                                        <div class="price-filter__inputs">
+                                            <input data-range-from="0" autocomplete="off" type="text"
+                                                value="500" name="form[]" class="price-filter__input">
+                                            <input id="input-number" data-range-to="3000" autocomplete="off" type="text"
+                                                value="2000" name="form[]" class="price-filter__input">
+                                        </div>
+                                        <div data-range-item class="price-filter__range"></div>
+                                    </div>
+                                </div>
+
+                                <div class="filter-catalog__item item-filter-catalog">
+                                    <button type="button" data-spoller
+                                        class="item-filter-catalog__title _icon-spoller-arrow">Производство</button>
+                                    <div class="item-filter-catalog__body">
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_1" class="checkbox__label"><span class="checkbox__text">АиР <small>(250)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_2" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_2" class="checkbox__label"><span class="checkbox__text">Булат
+                                                    Сергея Баранова <small>(25)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_3" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_3" class="checkbox__label"><span class="checkbox__text">Булат
+                                                    Умерова <small>(265)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_4" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_4" class="checkbox__label"><span class="checkbox__text">ЗЗОСС
+                                                    <small>(18)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_5" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_5" class="checkbox__label"><span class="checkbox__text">ЗИК
+                                                    <small>(170)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_6" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_6" class="checkbox__label"><span class="checkbox__text">ЗЛАТКО
+                                                    <small>(170)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_7" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_7" class="checkbox__label"><span
+                                                    class="checkbox__text">Оружейник <small>(170)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_8" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_8" class="checkbox__label"><span
+                                                    class="checkbox__text">РОСоружие <small>(100)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_9" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_9" class="checkbox__label"><span
+                                                    class="checkbox__text">СТИЛЬ-М <small>(230)</small></span></label>
+                                        </div>
+                                        <div class="item-filter-catalog__checkbox checkbox">
+                                            <input id="c_10" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+                                            <label for="c_10" class="checkbox__label"><span class="checkbox__text">НИКОН
+                                                    <small>(250)</small></span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                         <div class="catalog__content">
                             <div class="catalog__control">
                                 <select name="form[]" class="control">
@@ -38,6 +112,7 @@
                             </div>
                             <div class="catalog__products">
                                 <article class="product-card">
+                                    <div class="product-card__sale">-50%</div>
                                     <a href="" class="product-card__image">
                                         <span class="product-card__item-image-ibg product-card__item-image-ibg_contain">
                                             <img src="@img/product-card/image.jpg" alt="Картинка">
@@ -431,7 +506,8 @@
                             <div class="catalog__footer">
                                 <a href="" class="catalog__more button button_border">Показать больше</a>
                                 <div class="catalog__pagging pagging">
-                                    <button disabled type="submit" class="pagging__arrow pagging__arrow_left _icon-arrow-bottom"></button>
+                                    <button disabled type="submit"
+                                        class="pagging__arrow pagging__arrow_left _icon-arrow-bottom"></button>
                                     <ul class="pagging__list">
                                         <li class="pagging__item">
                                             <a href="" class="pagging__link _active">1</a>
@@ -449,18 +525,19 @@
                                             <a href="" class="pagging__link">15</a>
                                         </li>
                                     </ul>
-                                    <button type="submit" class="pagging__arrow pagging__arrow_right _icon-arrow-bottom"></button>
+                                    <button type="submit"
+                                        class="pagging__arrow pagging__arrow_right _icon-arrow-bottom"></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-		</main>
-		@@include('html/_footer.htm',{})
-	</div>
-	@@include('html/_popup.htm',{})
-	@@include('html/_js.htm',{})
+        </main>
+        @@include('html/_footer.htm',{})
+    </div>
+    @@include('html/_popup.htm',{})
+    @@include('html/_js.htm',{})
 </body>
 
 </html>
